@@ -1,6 +1,11 @@
+import ListGames from "../components/ListGames/ListGames"
+
 const Home = () => {
+    
     return (
-        <div>Home</div>
+        <div>
+            <ListGames />
+        </div>
     )
 }
 
