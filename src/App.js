@@ -9,7 +9,7 @@ function App() {
 
       <Switch>
         <Route path='/' component={ Home } exact />
-        <Route path='/Auth' component={ Auth } />
+        <Route path='/auth' component={ Auth } />
       </Switch>
 
     </BrowserRouter>

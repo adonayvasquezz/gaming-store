@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import AuthContext from '../../store/auth-context';
 import styles from './authForm.module.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -6,6 +7,8 @@ const API_REGISTER = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?
 const API_LOGIN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
 
 const AuthForm = () => {
+    const authCtx = useContext(AuthContext);
+
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
@@ -47,6 +50,8 @@ const AuthForm = () => {
             let response = await fetch(endpoint, requestOptions);
             let data = await response.json();
             console.log('Data: ', data);
+            authCtx.login(data.idToken)
+            setErrorMessage('');
             if (data && data.error) {
                 setErrorMessage(data.error.message);
                 //console.log(data.error.message);
