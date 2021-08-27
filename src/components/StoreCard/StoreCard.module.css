@@ -11,3 +11,12 @@
     font-size: 1.1rem;
     font-weight: 600;
 }
+
+.storeContainer {
+    cursor: pointer;
+}
+
+.storeContainer:hover{
+    opacity: 0.70;
+    transition: 0.2s;
+}

@@ -45,7 +45,7 @@ const GameDetail = ({ game, store }) => {
             <div>
                 {game.info.title && <h1 className="my-2 text-center">{game.info.title}</h1>}
                 <div className={styles.imgContainer}>
-                    {game.info.thumb && <img className={styles.imgDetail} src={game.info.thumb} alt="" />}
+                    {game.info.thumb && <img loading="lazy" className={styles.imgDetail} src={game.info.thumb} alt="" />}
                 </div>
                 <div className="mt-3 d-flex justify-content-start align-items-center">
                     <div>
