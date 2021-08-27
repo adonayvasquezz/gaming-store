@@ -17,9 +17,6 @@ const Navbar = () => {
                     { isLoggedIn && 
                         <NavLink exact to="/" className="inherit" activeClassName="pageSelected">Home</NavLink>
                     }
-                   {/*  { isLoggedIn && 
-                        <NavLink to="/abc" className="inherit" activeClassName="pageSelected">Page 2</NavLink>
-                    } */}
                 </div>
                 <div>
                 { !isLoggedIn && 

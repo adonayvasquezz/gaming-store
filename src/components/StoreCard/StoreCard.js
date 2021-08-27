@@ -2,7 +2,7 @@ import styles from './StoreCard.module.css';
 
 const StoreCard = ({ deal }) => {
     return (
-        <div className="col-6 col-md-4 my-4">
+        <div className="col-6 col-md-3 my-3">
             <div className={styles.storeContainer}>
                 <div>
                     <img className={styles.logoStore} alt={styles.logoStore} src={`https://www.cheapshark.com${deal.image}`}></img>

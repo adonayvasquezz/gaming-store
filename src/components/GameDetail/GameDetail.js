@@ -47,7 +47,7 @@ const GameDetail = ({ game, store }) => {
                 <div className={styles.imgContainer}>
                     {game.info.thumb && <img loading="lazy" className={styles.imgDetail} src={game.info.thumb} alt="" />}
                 </div>
-                <div className="mt-3 d-flex justify-content-start align-items-center">
+                <div className="mt-5 d-flex justify-content-center align-items-center">
                     <div>
                         <label className={styles.lowestPriceText}>Lowest historical price: </label>
                         {game.cheapestPriceEver.price &&

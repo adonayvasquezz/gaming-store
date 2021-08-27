@@ -1,15 +1,17 @@
 .imgDetail {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .imgContainer {
-    /* max-height: 40vh; */
+    min-width: 60vw;
+    /* height: 30%; */
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
     justify-content: center;
-    width: 60vw;
-    height: 30%;
+    align-items: center;
+    background-color: aqua;
    
 }
 
