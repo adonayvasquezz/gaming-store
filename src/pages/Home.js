@@ -3,7 +3,7 @@ import ListGames from "../components/ListGames/ListGames"
 const Home = () => {
     
     return (
-        <div>
+        <div className="container">
             <ListGames />
         </div>
     )

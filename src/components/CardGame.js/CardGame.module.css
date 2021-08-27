@@ -1,0 +1,19 @@
+.imgCard {
+    width: auto;
+    height: 11rem;
+    background-color: rgb(224, 235, 235);
+}
+.imgCover {
+    width: 100%;
+    height:11rem;
+    object-fit: cover;
+}
+.normalPrice {
+    text-decoration: line-through;
+    font-size: small;
+}
+
+.salePrice {
+    font-size: 1.1rem;
+    font-weight: 600;
+}

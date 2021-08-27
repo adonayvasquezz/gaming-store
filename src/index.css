@@ -22,3 +22,18 @@ code {
   text-decoration: none;
   padding: 0.8rem;
 }
+
+.card {
+  margin-bottom: 2rem;
+  height: 18rem;
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card:hover {
+  opacity: 0.85;
+  transition: 0.3s;
+}
