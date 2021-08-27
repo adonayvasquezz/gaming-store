@@ -1,11 +1,19 @@
+import { useHistory } from 'react-router-dom';
 import styles from './CardGame.module.css';
 //import imgNotFound from '../../../public/image-not-found.jpg';
 
 const CardGame = ({ game }) => {
     //let noImg = imgNotFound;
     //let gameImg = game.thumb ? game.thumb : noImg;
+
+    const history = useHistory();
+
+    const handleDetailGame = (gameID) => {
+        console.log('se clickeo para ver detalle', gameID);
+        history.push("/detail", gameID);
+    }
     return (
-        <div className="card">
+        <div onClick={() => handleDetailGame(game.gameID)} className="card">
             <div>
                 <img src={game.thumb} className={styles.imgCover} alt={game.internalName}></img>
             </div>
