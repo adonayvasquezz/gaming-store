@@ -52,11 +52,18 @@ const AuthForm = () => {
             let response = await fetch(endpoint, requestOptions);
             let data = await response.json();
             console.log('Data: ', data);
-            authCtx.login(data.idToken);
-            setErrorMessage('');
+            
             if (data && data.error) {
-                setErrorMessage(data.error.message);
-                //console.log(data.error.message);
+                let msj = data.error.message.replace(/_/gi, " ");
+                msj = msj.toLowerCase();
+                msj = msj[0].toUpperCase() + msj.slice(1);
+               
+                setErrorMessage(msj);
+                console.log(msj);
+            } else {
+                authCtx.login(data.idToken);
+                setErrorMessage('');
+                history.replace('/');
             }
         } catch (error) {
             console.error('Error: ',error);
@@ -81,7 +88,6 @@ const AuthForm = () => {
         } else {
             authRequest(email, password1, API_REGISTER);
         }
-        history.replace('/');
     }
 
     return (
