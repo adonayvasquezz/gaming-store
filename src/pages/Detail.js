@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Game_Detail } from "../Api";
+import { Game_Detail, Store_Info } from "../Api";
 import GameDetail from "../components/GameDetail/GameDetail";
 
 const Detail = () => {
@@ -10,8 +10,10 @@ const Detail = () => {
     const [game, setGame] = useState({
         info: {},
         cheapestPriceEver:{},
-        deals: {}
+        deals: []
     })
+
+    const [store, setStore] = useState([])
 
     useEffect(() => {
        
@@ -32,9 +34,28 @@ const Detail = () => {
 
     }, [location.state])
 
+    useEffect(() => {
+       
+        (async () => {
+            const requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            }
+            try {
+                let response = await fetch(Store_Info, requestOptions);
+                let data = await response.json();
+                setStore(data);
+                //console.log(data);
+            } catch (error) {
+                console.error('Error: ', error);
+            }
+        })();
+
+    }, [])
+
     return (
         <div>
-            <GameDetail game={game} />
+            <GameDetail game={game} store={store} />
         </div>
     )
 }

@@ -1,9 +1,33 @@
 import { useEffect, useState } from 'react';
+import StoreCard from '../StoreCard/StoreCard';
 import styles from './GameDetail.module.css';
 
-const GameDetail = ({ game }) => {
+const GameDetail = ({ game, store }) => {
 
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState('');
+    const [stores, setStores] = useState([]);
+
+    useEffect(() => {
+        let stores = game.deals.map((deal) => {
+            let st = store.find((item) => deal.storeID === item.storeID);
+            if (st) {
+                deal.storeName = st.storeName;
+                deal.image = st.images.logo;
+            }
+            /* let newDeal = {
+                ...deal,
+                storeName: st.storeName,
+                image: st.images.logo
+            } */
+            return deal;
+        });
+        //console.log('stores: ',stores);
+
+        let data = stores.map((deal, id) => {
+            return <StoreCard deal={deal} key={id} />
+        });
+        setStores(data);
+    }, [game.deals, store])
 
     useEffect(() => {
         let date = game.cheapestPriceEver.date;
@@ -32,9 +56,11 @@ const GameDetail = ({ game }) => {
 
                         {date && <label className="mx-3 text-center fs-5 ">  {date}</label>}
                     </div>
-                    <div>
-
-                    </div>
+                </div>
+                
+                <div className="row my-5">
+                    <h3>Stores: </h3>
+                    {stores}
                 </div>
             </div>
         </div>
