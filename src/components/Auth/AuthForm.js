@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import AuthContext from '../../store/auth-context';
 import styles from './authForm.module.css';
 
@@ -8,6 +9,7 @@ const API_LOGIN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWith
 
 const AuthForm = () => {
     const authCtx = useContext(AuthContext);
+    const history = useHistory();
 
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
@@ -50,7 +52,7 @@ const AuthForm = () => {
             let response = await fetch(endpoint, requestOptions);
             let data = await response.json();
             console.log('Data: ', data);
-            authCtx.login(data.idToken)
+            authCtx.login(data.idToken);
             setErrorMessage('');
             if (data && data.error) {
                 setErrorMessage(data.error.message);
@@ -79,6 +81,7 @@ const AuthForm = () => {
         } else {
             authRequest(email, password1, API_REGISTER);
         }
+        history.replace('/');
     }
 
     return (

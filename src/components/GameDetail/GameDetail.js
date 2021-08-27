@@ -54,7 +54,7 @@ const GameDetail = ({ game, store }) => {
                             <label className={styles.price}>
                                 $ {game.cheapestPriceEver.price}</label>}
 
-                        {date && <label className="mx-3 text-center fs-5 ">  {date}</label>}
+                        {date && <label className="mx-3 text-center fs-5 "> in  {date}</label>}
                     </div>
                 </div>
                 
