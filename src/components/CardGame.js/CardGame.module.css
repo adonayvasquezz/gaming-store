@@ -17,3 +17,23 @@
     font-size: 1.1rem;
     font-weight: 600;
 }
+
+.card {
+    height: 18rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    border: 2px solid rgb(230, 227, 227);
+    border-radius: 5px;
+}
+.cardSearch {
+    height: 16.5rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    border: 2px solid rgb(230, 227, 227);
+    border-radius: 5px;
+}
+
+.card:hover {
+    opacity: 0.85;
+    transition: 0.3s;
+}

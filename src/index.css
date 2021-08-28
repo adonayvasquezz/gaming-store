@@ -23,17 +23,17 @@ code {
   padding: 0.8rem;
 }
 
-.card {
+/* .card {
   margin-bottom: 2rem;
-  height: 18rem;
+  min-height: 18rem;
   cursor: pointer;
-}
+} */
 
 .card-body {
   padding: 0;
 }
 
-.card:hover {
+/* .card:hover {
   opacity: 0.85;
   transition: 0.3s;
-}
+} */

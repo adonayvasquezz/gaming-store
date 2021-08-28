@@ -9,17 +9,18 @@ const CardGame = ({ game }) => {
     const history = useHistory();
 
     const handleDetailGame = (gameID) => {
-        console.log('se clickeo para ver detalle', gameID);
+        //console.log('se clickeo para ver detalle', gameID);
         history.push("/detail", gameID);
     }
     return (
-        <div onClick={() => handleDetailGame(game.gameID)} className="card">
+        <div onClick={() => handleDetailGame(game.gameID)} className={game.title ? styles.card : styles.cardSearch}>
             <div>
                 <img loading="lazy" src={game.thumb} className={styles.imgCover} alt={game.internalName}></img>
             </div>
             <div className="card-body d-flex justify-content-between flex-column">
-                <h6 className="card-text text-center pt-2">{game.title}</h6>
+                <h6 className="card-text text-center pt-2">{game.title ? game.title : game.external}</h6>
 
+               {game.savings && 
                 <div className="d-flex justify-content-end align-items-center">
                     <div className="me-2">
                         <label className="bg-success p-2 text-white rounded">
@@ -30,7 +31,12 @@ const CardGame = ({ game }) => {
                         <div className={styles.normalPrice}>$ {game.normalPrice}</div>
                         <div className={styles.salePrice}>$ {game.salePrice}</div>
                     </div>
-                </div>
+                </div>}
+
+                {!game.savings && 
+                <div className="d-flex justify-content-center">
+                    <label className="btn btn-success" >View Details</label>
+                </div>}
             </div>
         </div>
     )

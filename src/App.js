@@ -6,6 +6,7 @@ import Auth from './pages/Auth';
 import Detail from './pages/Detail';
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
+import Search from './pages/Search';
 import AuthContext from './store/auth-context';
 
 function App() {
@@ -15,10 +16,16 @@ function App() {
         <Navbar />
       <Switch>
         <Route path='/' component={ Home } exact />
+        
         {!authCtx.isLoggedIn && <Route path='/auth' component={ Auth } />} 
-        {/* {authCtx.isLoggedIn && <Route path='/detail' component={ Detail } />}  */}
+
         <Route path='/detail'>
           {authCtx.isLoggedIn && <Detail />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />} 
+        </Route>
+
+        <Route path='/search'>
+          {authCtx.isLoggedIn && <Search />}
           {!authCtx.isLoggedIn && <Redirect to="/auth" />} 
         </Route>
        
