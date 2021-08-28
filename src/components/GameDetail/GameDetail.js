@@ -52,6 +52,7 @@ const GameDetail = ({ game, store }) => {
             fav.push(game.info.steamAppID);
             localStorage.setItem('favoritesGames', JSON.stringify(fav));
         }
+        console.log(game);
     }
 
     return (

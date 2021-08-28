@@ -29,6 +29,8 @@ const Navbar = () => {
                 <div className="d-flex justify-content-start">
                     {isLoggedIn &&
                         <NavLink exact to="/" className="inherit" activeClassName="pageSelected">Home</NavLink>}
+                    {/* {isLoggedIn &&
+                        <NavLink to="/favorites" className="inherit" activeClassName="pageSelected">Favorites</NavLink>} */}
                 </div>
                 <div className="w-50">
                     {isLoggedIn &&

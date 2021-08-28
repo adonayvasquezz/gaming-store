@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Auth from './pages/Auth';
 import Detail from './pages/Detail';
+import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
 import Search from './pages/Search';
@@ -26,6 +27,11 @@ function App() {
 
         <Route path='/search'>
           {authCtx.isLoggedIn && <Search />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />} 
+        </Route>
+
+        <Route path='/favorites'>
+          {authCtx.isLoggedIn && <Favorites />}
           {!authCtx.isLoggedIn && <Redirect to="/auth" />} 
         </Route>
        

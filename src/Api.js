@@ -6,4 +6,6 @@ export const Game_Detail = 'https://www.cheapshark.com/api/1.0/games?id=';
 
 export const Store_Info = 'https://www.cheapshark.com/api/1.0/stores';
 
-export const Search_Title = 'https://www.cheapshark.com/api/1.0/games?'
+export const Search_Title = 'https://www.cheapshark.com/api/1.0/games?';
+
+export const Multiple_Games = 'https://www.cheapshark.com/api/1.0/games?ids='
