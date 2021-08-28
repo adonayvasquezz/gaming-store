@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Search_Title } from "../../Api";
 import CardGame from "../CardGame.js/CardGame";
 
-
 const SearchGame = ({searchTitle}) => {
 
     const [foundGame, setFoundGame] = useState([]);

@@ -40,6 +40,20 @@ const GameDetail = ({ game, store }) => {
         //console.log(formatedDate.toString());
     }, [game.cheapestPriceEver.date])
 
+    const handleFavorites = (e) => {
+        e.preventDefault();
+
+        let fav = JSON.parse(localStorage.getItem('favoritesGames'));
+        if (fav==null) {
+            let fa = [];
+            fa.push(game.info.steamAppID);
+            localStorage.setItem('favoritesGames', JSON.stringify(fa));
+        } else {
+            fav.push(game.info.steamAppID);
+            localStorage.setItem('favoritesGames', JSON.stringify(fav));
+        }
+    }
+
     return (
         <div className="container d-flex justify-content-center">
             <div>
@@ -56,6 +70,10 @@ const GameDetail = ({ game, store }) => {
 
                         {date && <label className="mx-3 text-center fs-5 "> in  {date}</label>}
                     </div>
+                </div>
+
+                <div className="d-flex justify-content-center mt-4">
+                    <button className="btn btn-success" onClick={handleFavorites} >Add to Favorites</button>
                 </div>
                 
                 <div className="row my-5">
