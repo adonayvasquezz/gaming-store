@@ -1,13 +1,15 @@
 .imgDetail {
-    width: 100%;
-    height: 100%;
+    width: 60vw;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
 }
 
 .imgContainer {
-    min-width: 60vw;
-    /* height: 30%; */
-    margin-left: 10%;
-    margin-right: 10%;
+    background-color: aqua;
+    width: 100%;
+    height: 35vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,5 +41,3 @@
     color: white;
     background-color: rgb(184, 91, 4);
 }
-
-/* style={{backgroundColor: gameStatus==='Game Added'? 'red' : 'black'}} */
