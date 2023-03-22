@@ -51,7 +51,6 @@ const AuthForm = () => {
         try {
             let response = await fetch(endpoint, requestOptions);
             let data = await response.json();
-            console.log('Data: ', data);
             
             if (data && data.error) {
                 let msj = data.error.message.replace(/_/gi, " ");

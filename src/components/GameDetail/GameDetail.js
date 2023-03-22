@@ -31,7 +31,6 @@ const GameDetail = ({ game, store }) => {
     let year = d.getFullYear();
     let formatedDate = `${month} ${day}, ${year}`;
     setDate(formatedDate.toString());
-    //console.log(formatedDate.toString());
   }, [game.cheapestPriceEver.date]);
 
   const gameFavoritesStore = useCallback(() => {
@@ -44,7 +43,6 @@ const GameDetail = ({ game, store }) => {
         : "Add to Favorites";
       setGameStatus(gameAdded);
     }
-    console.log("juegos actuales", favoritesArray);
   }, [game.info.steamAppID]);
 
   useEffect(() => {
@@ -67,7 +65,6 @@ const GameDetail = ({ game, store }) => {
       const gameExist = favoritesArray.find(
         (element) => element === game.info.steamAppID
       );
-      console.log("favoritos: ", gameExist);
       if (gameExist) {
         const newFav = favoritesArray.filter(
           (savedGame) => savedGame !== game.info.steamAppID
@@ -80,7 +77,6 @@ const GameDetail = ({ game, store }) => {
           ...favoritesArray,
           game.info.steamAppID && game.info.steamAppID,
         ];
-        console.log("ARRAY ES ", favoritesArray, game.info.steamAppID);
         localStorage.setItem("favoritesGames", JSON.stringify(newFav));
         setGameStatus("Game added");
       }

@@ -17,8 +17,6 @@ const SearchGame = ({searchTitle}) => {
                 let data = await response.json();
                 let gamesList = data.map((game, id) => <div key={id} className="col-6 col-md-4 col-lg-3"><CardGame game={game} /></div>);
                 setFoundGame(gamesList);
-                console.log(data);
-                console.log('gameList: ', gamesList);
             } catch (error) {
                 console.error('Error: ', error);
             }

@@ -9,7 +9,6 @@ const CardGame = ({ game }) => {
     const history = useHistory();
 
     const handleDetailGame = (gameID) => {
-        //console.log('se clickeo para ver detalle', gameID);
         history.push("/detail", gameID);
     }
     return (

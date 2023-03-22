@@ -12,7 +12,6 @@ const Favorites = () => {
         let unique = [...new Set(favArray)];
         let favStringId = unique.toString();
         setfavIdList(favStringId);
-        console.log(favIdList);
 
     }, [favIdList])
 
@@ -28,7 +27,6 @@ const Favorites = () => {
                 let data = await response.json();
                 let gamesList = data.map((game, id) => <div key={id} className="col-6 col-md-4 col-lg-3"><CardGame game={game} /></div>);
                 setFavorites(gamesList);
-                console.log(data);
                 return data;
             } catch (error) {
                 console.error('Error: ', error);
