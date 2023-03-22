@@ -8,4 +8,4 @@ export const Store_Info = 'https://www.cheapshark.com/api/1.0/stores';
 
 export const Search_Title = 'https://www.cheapshark.com/api/1.0/games?';
 
-export const Multiple_Games = 'https://www.cheapshark.com/api/1.0/games?ids='
+export const Multiple_Games = 'https://www.cheapshark.com/api/1.0/games?ids=';

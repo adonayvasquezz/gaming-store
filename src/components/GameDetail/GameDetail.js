@@ -33,7 +33,7 @@ const GameDetail = ({ game, store }) => {
     const favoritesArray = JSON.parse(localStorage.getItem("favoritesGames"));
     if (favoritesArray) {
       const gameAdded = favoritesArray.find(
-        (element) => element === game.info.steamAppID
+        (element) => element.steamAppID === game.info.steamAppID
       )
         ? "Game Added"
         : "Add to Favorites";
@@ -49,29 +49,27 @@ const GameDetail = ({ game, store }) => {
     e.preventDefault();
 
     const favoritesArray = JSON.parse(localStorage.getItem("favoritesGames"));
-
+    if (!game.info.steamAppID) return;
     if (favoritesArray === null) {
-      if (!game.info.steamAppID) return;
       localStorage.setItem(
         "favoritesGames",
-        JSON.stringify([game.info.steamAppID])
+        JSON.stringify([game.info])
       );
       setGameStatus("Game added");
     } else {
       const gameExist = favoritesArray.find(
-        (element) => element === game.info.steamAppID
+        (element) => element.steamAppID === game.info.steamAppID
       );
       if (gameExist) {
         const newFav = favoritesArray.filter(
-          (savedGame) => savedGame !== game.info.steamAppID
+          (savedGame) => savedGame.steamAppID !== game.info.steamAppID
         );
         localStorage.setItem("favoritesGames", JSON.stringify(newFav));
         setGameStatus("Add to favorites");
       } else {
-        if (!game.info.steamAppID) return;
         const newFav = [
           ...favoritesArray,
-          game.info.steamAppID && game.info.steamAppID,
+          game.info
         ];
         localStorage.setItem("favoritesGames", JSON.stringify(newFav));
         setGameStatus("Game added");
