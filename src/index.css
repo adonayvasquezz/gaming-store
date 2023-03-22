@@ -12,15 +12,25 @@ code {
     monospace;
 }
 
-.pageSelected {
-  background-color: rgb(231, 231, 231);
-  border-radius: 5px;
+.btnCommon {
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  color: white;
 }
 
 .inherit {
-  color: inherit;
   text-decoration: none;
-  padding: 0.8rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.pageSelected {
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.inputSearchbar {
+  height: 2rem;
 }
 
 /* .card {

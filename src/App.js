@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Auth from './pages/Auth';
 import Detail from './pages/Detail';
 import Favorites from './pages/Favorites';

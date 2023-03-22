@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-import AuthContext from "../store/auth-context";
+import AuthContext from "../../store/auth-context";
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
     const authCtx = useContext(AuthContext);
@@ -11,7 +12,6 @@ const Navbar = () => {
 
     const handleSearchTitle = (e) => {
         setSearch(e.target.value);
-        //console.log(search);
     }
 
     const logoutHandler = () => {
@@ -24,26 +24,26 @@ const Navbar = () => {
     }
 
     return (
-        <div>
-            <nav className="d-flex justify-content-between align-items-center container mt-2 mb-4">
+        <div className={styles.navbarContainer}>
+            <nav className="d-flex justify-content-between align-items-center container pt-2 pb-2 mb-2">
                 <div className="d-flex justify-content-start">
-                    {isLoggedIn &&
-                        <NavLink exact to="/" className="inherit" activeClassName="pageSelected">Home</NavLink>}
+                  
+                        <NavLink exact to="/" className="btnCommon" activeClassName="pageSelected">Home</NavLink>
                     {/* {isLoggedIn &&
                         <NavLink to="/favorites" className="inherit" activeClassName="pageSelected">Favorites</NavLink>} */}
                 </div>
                 <div className="w-50">
                     {isLoggedIn &&
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" onChange={handleSearchTitle} placeholder="Enter videogame name" aria-label="Search"></input>
-                            <button className="btn btn-outline-success" onClick={handleSearchClick} type="submit">Search</button>
+                        <form className="d-flex align-items-center">
+                            <input className="form-control me-2 inputSearchbar" type="search" onChange={handleSearchTitle} placeholder="Enter videogame name" aria-label="Search"></input>
+                            <button className={styles.btnSearch} onClick={handleSearchClick} type="submit">Search</button>
                         </form>}
                 </div>
                 <div>
                     {!isLoggedIn &&
-                        <NavLink to="/auth" className="inherit" activeClassName="pageSelected">Login</NavLink>}
+                        <NavLink to="/auth" className="btnCommon" activeClassName="pageSelected">Login</NavLink>}
                     {isLoggedIn &&
-                        <NavLink to="/" className="inherit" activeClassName="" onClick={logoutHandler}>Logout</NavLink>}
+                        <NavLink to="/" className="btnCommon" onClick={logoutHandler}>Logout</NavLink>}
                 </div>
 
             </nav>
