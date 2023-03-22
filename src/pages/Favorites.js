@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CardGame from "../components/CardGame.js/CardGame";
+import CardFavorite from "../components/CardFavorite/CardFavorite";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -8,7 +8,7 @@ const Favorites = () => {
     const favArray = JSON.parse(localStorage.getItem("favoritesGames"));
     let gamesList = favArray.map((game, id) => (
         <div key={id} className="col-6 col-md-4 col-lg-3">
-          <CardGame game={game} />
+          <CardFavorite game={game} />
         </div>
       ));
       setFavorites(gamesList);
