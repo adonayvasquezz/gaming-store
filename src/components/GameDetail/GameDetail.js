@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { getDate } from "../../utils/Date";
 import StoreCard from "../StoreCard/StoreCard";
 import styles from "./GameDetail.module.css";
 
@@ -24,13 +25,8 @@ const GameDetail = ({ game, store }) => {
   }, [game.deals, store]);
 
   useEffect(() => {
-    let date = game.cheapestPriceEver.date;
-    let d = new Date(date * 1000);
-    let month = d.toLocaleString("default", { month: "long" });
-    let day = d.getDate();
-    let year = d.getFullYear();
-    let formatedDate = `${month} ${day}, ${year}`;
-    setDate(formatedDate.toString());
+   const formatedDate = getDate(game.cheapestPriceEver.date)
+    setDate(formatedDate);
   }, [game.cheapestPriceEver.date]);
 
   const gameFavoritesStore = useCallback(() => {
@@ -111,7 +107,7 @@ const GameDetail = ({ game, store }) => {
             )}
 
             {date && (
-              <label className="mx-3 text-center fs-5 "> in {date}</label>
+              <label className="mx-3 text-center fs-5 ">{date}</label>
             )}
           </div>
         </div>
