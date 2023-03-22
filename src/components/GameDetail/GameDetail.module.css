@@ -23,3 +23,21 @@
     font-weight: 700;
     text-align: center;
 }
+
+.btnOrange {
+    all: unset;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(224, 111, 5);
+}
+
+.btnDarkOrange {
+    all: unset;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(184, 91, 4);
+}
+
+/* style={{backgroundColor: gameStatus==='Game Added'? 'red' : 'black'}} */

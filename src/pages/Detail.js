@@ -25,6 +25,7 @@ const Detail = () => {
             try {
                 let response = await fetch(`${Game_Detail}${location.state}`, requestOptions);
                 let data = await response.json();
+                console.log('data obtemida', data)
                 setGame(data);
                 console.log(data);
             } catch (error) {
